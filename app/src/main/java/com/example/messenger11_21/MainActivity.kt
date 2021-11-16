@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity() {
                     if (mAuth.currentUser?.uid != currentUser?.uid){
                         userList.add(currentUser!!)
                     }
-
                 }
                 adapter.notifyDataSetChanged()
             }
