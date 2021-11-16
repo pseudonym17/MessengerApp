@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.messenger11_21">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/chatspic"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/chatspic"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Messenger11_21">
+        <activity
+            android:name=".Chat"
+            android:exported="false" />
+        <activity
+            android:name=".SignUp"
+            android:exported="true" />
+        <activity
+            android:name=".Login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"></activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "115066942053",
+    "project_id": "messenger-a07db",
+    "storage_bucket": "messenger-a07db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115066942053:android:34343683a6dbc0cd768c8c",
+        "android_client_info": {
+          "package_name": "com.example.messenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115066942053-mnvdtfa3pnet321ethn4qcvs8vcd7j0e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNp1Z1MftD24sZPa1iv39wz7axE4bhT7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115066942053-mnvdtfa3pnet321ethn4qcvs8vcd7j0e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115066942053:android:c4459403eff57784768c8c",
+        "android_client_info": {
+          "package_name": "com.example.messenger11_21"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115066942053-5ltr1vk4nbjnron4v7dmn6r4hnomrbnb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.messenger11_21",
+            "certificate_hash": "39f181919db01230002fbae0aaea75f7ba4d0b14"
+          }
+        },
+        {
+          "client_id": "115066942053-mnvdtfa3pnet321ethn4qcvs8vcd7j0e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNp1Z1MftD24sZPa1iv39wz7axE4bhT7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115066942053-mnvdtfa3pnet321ethn4qcvs8vcd7j0e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
