@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
         <TextView
             android:id="@+id/text_name"
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cailey"
+            android:textColor="@color/teal"
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_marginLeft="10dp"/>

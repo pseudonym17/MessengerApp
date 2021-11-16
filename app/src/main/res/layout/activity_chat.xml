@@ -30,6 +30,8 @@
             android:layout_weight="85"
             android:layout_marginLeft="10dp"
             android:hint="Enter Message"
+            android:textColorHint="@color/hint"
+            android:textColor="@color/white"
             android:paddingLeft="10dp"
             android:background="@drawable/message_box_background"
             />

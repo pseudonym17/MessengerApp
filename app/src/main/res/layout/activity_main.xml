@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue"
+    android:background="@color/back_color"
     tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -25,18 +25,20 @@
         android:weightSum="100">
 
         <EditText
-            android:id="@+id/messageBox"
+            android:id="@+id/contact"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="85"
             android:layout_marginLeft="10dp"
             android:hint="New Contact"
+            android:textColorHint="@color/hint"
+            android:textColor="@color/white"
             android:paddingLeft="10dp"
             android:background="@drawable/message_box_background"
             />
 
         <ImageView
-            android:id="@+id/sendBtn"
+            android:id="@+id/addBtn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/sendpic"
