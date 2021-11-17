@@ -41,7 +41,7 @@
             android:id="@+id/addBtn"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/sendpic"
+            android:src="@drawable/addbtn"
             android:layout_weight="20"/>
 
     </LinearLayout>

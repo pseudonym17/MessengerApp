@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.FirebaseAuthKtxRegistrar
 import kotlin.math.log
@@ -38,8 +39,13 @@ class Login : AppCompatActivity() {
         loginBtn.setOnClickListener {
             val email = editEmail.text.toString()
             val password = editPassword.text.toString()
-
-            login(email, password)
+            if (email == "") {
+                Toast.makeText(this, "Email is Missing", Toast.LENGTH_SHORT).show()
+            } else if (password == "") {
+                Toast.makeText(this, "Password is Missing", Toast.LENGTH_SHORT).show()
+            } else {
+                login(email, password)
+            }
         }
 
     }
@@ -52,7 +58,7 @@ class Login : AppCompatActivity() {
                     finish()
                     startActivity(intent)
                 } else {
-                    println("Couldn't Login")
+                    Toast.makeText(this, "Incorrect Email or Password", Toast.LENGTH_SHORT).show()
                 }
 
             }

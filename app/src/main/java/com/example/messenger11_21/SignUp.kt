@@ -36,13 +36,19 @@ class SignUp : AppCompatActivity() {
             val name = editName.text.toString()
             val email = editEmail.text.toString()
             val password = editPassword.text.toString()
-            if (password.length > 5) {
-                signUp(name, email, password)
-            } else {
+            // Check form
+            if (name == "") {
+                Toast.makeText(this, "Name Missing", Toast.LENGTH_SHORT).show()
+            } else if (email == "") {
+                Toast.makeText(this, "Email Missing", Toast.LENGTH_SHORT).show()
+            } else if (password == "") {
+                Toast.makeText(this, "Password Missing", Toast.LENGTH_SHORT).show()
+            } else if (password.length < 6){
                 editPassword.text.clear()
                 Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show()
+            } else {
+                signUp(name, email, password)
             }
-
         }
     }
 
@@ -57,7 +63,6 @@ class SignUp : AppCompatActivity() {
                     finish()
                     startActivity(intent)
                 } else {
-                    println("Couldn't Add User")
                     Toast.makeText(this, "Failed to Add", Toast.LENGTH_SHORT).show()
                 }
         }

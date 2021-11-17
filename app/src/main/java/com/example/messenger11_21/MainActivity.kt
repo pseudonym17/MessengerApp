@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportActionBar?.title = "Contacts"
+
         mAuth = FirebaseAuth.getInstance()
         db = FirebaseDatabase.getInstance().getReference()
 
@@ -59,34 +61,41 @@ class MainActivity : AppCompatActivity() {
             override fun onCancelled(error: DatabaseError) {}
         })
 
+        //Search for a user's saved contacts
         db.child("user").child(uid).child("contacts").addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 contactList.clear()
                 for (postSnapshot in snapshot.children) {
                     val contact = postSnapshot.getValue(User::class.java)
-                    println(contact)
-                    Toast.makeText(this@MainActivity, "Contact: $contact", Toast.LENGTH_SHORT).show()
                     contactList.add(contact!!)
                 }
+                // Update adapter
                 adapter.notifyDataSetChanged()
             }
             override fun onCancelled(error: DatabaseError) {}
         })
 
         addBtn = findViewById(R.id.addBtn)
+        // Add a new contact if contact is in userList
         addBtn.setOnClickListener{
             val editContact = findViewById<EditText>(R.id.contact)
             val newContact = editContact.text.toString()
             db = FirebaseDatabase.getInstance().getReference()
             // Add a new contact if they exist in userList
             var verifiedContact : User
+            var verified = false
             for (user in userList) {
                 if (user.name == newContact) {
                     verifiedContact = user
                     db.child("user").child(uid).child("contacts").child(newContact).setValue(verifiedContact)
-                    editContact.text.clear()
+                    verified = true
+                    break
                 }
             }
+            if (!verified) {
+                Toast.makeText(this, "User Not Found", Toast.LENGTH_SHORT).show()
+            }
+            editContact.text.clear()
         }
 
     }
