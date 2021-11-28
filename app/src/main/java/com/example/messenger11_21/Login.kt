@@ -7,8 +7,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.FirebaseAuthKtxRegistrar
-import kotlin.math.log
 
 class Login : AppCompatActivity() {
 
@@ -54,7 +52,7 @@ class Login : AppCompatActivity() {
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    val intent = Intent(this@Login, MainActivity::class.java)
+                    val intent = Intent(this@Login, Contacts::class.java)
                     finish()
                     startActivity(intent)
                 } else {

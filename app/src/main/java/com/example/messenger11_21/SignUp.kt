@@ -7,9 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.database.*
 
 class SignUp : AppCompatActivity() {
 
@@ -47,7 +45,26 @@ class SignUp : AppCompatActivity() {
                 editPassword.text.clear()
                 Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show()
             } else {
-                signUp(name, email, password)
+                // Ensure that the username is unique
+                var uniqueUser = true
+                db = FirebaseDatabase.getInstance().getReference()
+                db.child("user").addValueEventListener(object: ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        for (postSnapshot in snapshot.children) {
+                            val username = postSnapshot.child("name").value.toString()
+                            if (username == name) {
+                                uniqueUser = false
+                            }
+                        }
+                        if (uniqueUser) {
+                            signUp(name, email, password)
+                        } else {
+                            Toast.makeText(this@SignUp, "This username already exists. Please choose another", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    override fun onCancelled(error: DatabaseError) {}
+                })
+
             }
         }
     }
@@ -58,8 +75,7 @@ class SignUp : AppCompatActivity() {
                 if (task.isSuccessful) {
                     val user = mAuth.currentUser
                     addUserToDatabase(name, email, mAuth.currentUser?.uid!!)
-
-                    val intent = Intent(this@SignUp, MainActivity::class.java)
+                    val intent = Intent(this@SignUp, Contacts::class.java)
                     finish()
                     startActivity(intent)
                 } else {
