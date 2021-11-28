@@ -28,3 +28,9 @@ My purpose for choosing a messenger app was that I eventually will add security 
 * Add encryption of messages
 * Add image sending capability
 * Add group chat feature
+
+# Images
+![Login Screen](screen1.png)
+![Contacts](screen2.png)
+![Chats](screen3.png)
+
