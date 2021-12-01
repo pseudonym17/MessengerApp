@@ -6,9 +6,7 @@ This is a simple messenger app. The app is simple for a user to understand. You 
 
 My purpose for choosing a messenger app was that I eventually will add security to this app. This will ensure that only the intended party will be able to access messages sent to them. Before I can create a secure messenger app, I needed to learn how to send messages between users and gain more experience in Android Studio and Kotlin.
 
-{Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the app running and a walkthrough of the code.}
-
-[Software Demo Video](http://youtube.link.goes.here)
+[My Demo Video](https://youtu.be/PHEErZ5brZI)
 
 # Development Environment
 
