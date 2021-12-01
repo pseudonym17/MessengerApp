@@ -48,12 +48,14 @@ class SignUp : AppCompatActivity() {
                 // Ensure that the username is unique
                 var uniqueUser = true
                 db = FirebaseDatabase.getInstance().getReference()
-                db.child("user").addValueEventListener(object: ValueEventListener {
+                db.child("user").addListenerForSingleValueEvent(object: ValueEventListener {
+                //db.child("user").addValueEventListener(object: ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         for (postSnapshot in snapshot.children) {
                             val username = postSnapshot.child("name").value.toString()
                             if (username == name) {
                                 uniqueUser = false
+                                break
                             }
                         }
                         if (uniqueUser) {
@@ -64,9 +66,11 @@ class SignUp : AppCompatActivity() {
                     }
                     override fun onCancelled(error: DatabaseError) {}
                 })
-
             }
         }
+    }
+    private fun displayError(){
+        Toast.makeText(this, "This username already exists. Please choose another", Toast.LENGTH_SHORT).show()
     }
 
     private fun signUp(name: String, email: String, password: String){
